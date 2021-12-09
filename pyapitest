@@ -1,0 +1,23 @@
+import requests
+import json
+import base64
+
+url = 'http://www.westrist.com/wordpress/wp-json/wp/v2'
+
+user = 'admin'
+password = '6oV8 i8cj fakX Z5SU 1XcA PN9W' 
+
+creds = user + ':' + password
+
+token = base64.b64encode(creds.encode())
+
+header = {'Authorization': 'Basic' + token.decode('utf-8')}
+
+post = {
+  'content' :'this is the test'
+  'status': 'publish'
+  }
+  
+  r = request.post(url + '/post', headers=header, json=post)
+  print(r)
+  
